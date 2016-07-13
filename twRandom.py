@@ -39,4 +39,13 @@ for each_min in range(len(timeIndex) -1):
     init = min_index[each_min]
     nextPoint = init + rd.randint(int(-singleRange), singleRange)
     min_index.append(nextPoint)    
-    
+
+"""
+這樣子失敗了,因為不斷的相加,不斷的減少,很容易就會超過上下限
+怎麼辦?
+我要怎麼模擬,台股有上下限的
+所以,改成 while loop ?
+只要長度和 timeIndex 沒有 match, 就不斷的產生一個數字
+而只有這個數字在限制的
+
+"""
