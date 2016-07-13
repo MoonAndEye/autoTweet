@@ -48,4 +48,10 @@ for each_min in range(len(timeIndex) -1):
 只要長度和 timeIndex 沒有 match, 就不斷的產生一個數字
 而只有這個數字在限制的
 
+
+換個想法
+
+一開始丟出一個上限,和一個下限
+
+然後 random 的東西就直接設定在這區間,就不會超過啦
 """
