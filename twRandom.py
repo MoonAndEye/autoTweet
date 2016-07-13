@@ -20,7 +20,7 @@ time_axis = []
 startTime = "09:01"
 startPoint = 8832.42
 singleRange = startPoint * 0.1
-singleRange = float('%.2f' %singleRange)
+singleRange = int(singleRange)
 """
 singleRange 是單邊範圍,到時候可以下一個random(singleRange, singleRange * -1)
 """
@@ -28,3 +28,15 @@ singleRange 是單邊範圍,到時候可以下一個random(singleRange, singleRa
 timeIndex = pd.date_range(startTime, periods = 270, freq="min")
 
 predict = pd.DataFrame(np.random.randn(len(timeIndex)), columns=["twStock"], index = timeIndex)
+
+print(len(timeIndex))
+
+min_index = []
+min_index.append(startPoint)
+
+
+for each_min in range(len(timeIndex) -1):
+    init = min_index[each_min]
+    nextPoint = init + rd.randint(int(-singleRange), singleRange)
+    min_index.append(nextPoint)    
+    
