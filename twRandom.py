@@ -28,7 +28,9 @@ low_limit = rd.randint(int(startPoint - singleRange), int(startPoint))
 singleRange 是單邊範圍,到時候可以下一個random(singleRange, singleRange * -1)
 """
 
-timeIndex = pd.date_range(startTime, periods = 27, freq="10min")
+timeIndex = pd.date_range(startTime, periods = 27, freq="10min",)
+prettyIndex =[]
+
 #改成每十分鐘一點,畫面比較漂亮,如果想的話,每1分鐘一點也行
 #print(len(timeIndex))
 
@@ -62,13 +64,21 @@ toDo List
 
 """
 
+"""
+
+"""
+
+
 plt.plot(timeIndex, minutes_point)
 plt.xlabel('Time')
 plt.ylabel('TAIEX')
 plt.title('Taiwan stock index Predict')
 #plt.axis([0, 6, 0, 20])
+plt.xticks(rotation=70)
+
 plt.show()
 fileName = "TAIEX.jpg"
+
 """
 #如果要把 figure 存起來, 就要把 plt.show() 關掉
 #plt.savefig(fileName)   # save the figure to file
