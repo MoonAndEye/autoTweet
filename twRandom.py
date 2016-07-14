@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import time
 import datetime
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import random as rd
 
 time_axis = []
@@ -28,7 +28,7 @@ low_limit = rd.randint(int(startPoint - singleRange), int(startPoint))
 singleRange 是單邊範圍,到時候可以下一個random(singleRange, singleRange * -1)
 """
 
-timeIndex = pd.date_range(startTime, periods = 270, freq="min")
+timeIndex = pd.date_range(startTime, periods = 54, freq="5min")
 
 #print(len(timeIndex))
 
@@ -61,3 +61,7 @@ toDo List
     c> 上下震盪
 
 """
+
+plt.plot(timeIndex, minutes_point)
+#plt.axis([0, 6, 0, 20])
+plt.show()
