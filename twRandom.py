@@ -12,6 +12,11 @@ import random as rd
 
 time_axis = []
 
+today = datetime.datetime.today()
+tmr = today + datetime.timedelta(1)
+title= tmr.strftime("%Y %B %d %A .")
+print(str(tmr.strftime("%Y %B %d %A .")))
+
 """
 四個小時半的交易, 就是270 min
 """
@@ -29,7 +34,9 @@ singleRange 是單邊範圍,到時候可以下一個random(singleRange, singleRa
 """
 
 timeIndex = pd.date_range(startTime, periods = 27, freq="10min",)
-prettyIndex =[]
+
+datelist = pd.date_range(startTime, periods = 27, freq="10min",).tolist()
+
 
 #改成每十分鐘一點,畫面比較漂亮,如果想的話,每1分鐘一點也行
 #print(len(timeIndex))
@@ -72,7 +79,7 @@ toDo List
 plt.plot(timeIndex, minutes_point)
 plt.xlabel('Time')
 plt.ylabel('TAIEX')
-plt.title('Taiwan stock index Predict')
+plt.title('Taiwan stock index Predict on ' + title)
 #plt.axis([0, 6, 0, 20])
 plt.xticks(rotation=70)
 
