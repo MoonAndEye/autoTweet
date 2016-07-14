@@ -23,7 +23,7 @@ print(str(tmr.strftime("%Y %B %d %A .")))
 
 
 startTime = "09:01"
-startPoint = 8832.42
+startPoint = 8866.36
 singleRange = startPoint * 0.1
 singleRange = int(singleRange)
 up_limit = rd.randint(int(startPoint),int(startPoint + singleRange))
@@ -77,17 +77,18 @@ toDo List
 
 
 plt.plot(timeIndex, minutes_point)
+plt.gcf().subplots_adjust(bottom=0.2)
 plt.xlabel('Time')
 plt.ylabel('TAIEX')
 plt.title('Taiwan stock index Predict on ' + title)
 #plt.axis([0, 6, 0, 20])
-plt.xticks(rotation=70)
+plt.xticks(rotation=30)
 
-plt.show()
+#plt.show()
 fileName = "TAIEX.jpg"
 
-"""
+
 #如果要把 figure 存起來, 就要把 plt.show() 關掉
-#plt.savefig(fileName)   # save the figure to file
-#plt.close()
-"""
+plt.savefig(fileName)   # save the figure to file
+plt.close()
+
