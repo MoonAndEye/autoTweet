@@ -63,5 +63,14 @@ toDo List
 """
 
 plt.plot(timeIndex, minutes_point)
+plt.xlabel('Time')
+plt.ylabel('TAIEX')
+plt.title('Taiwan stock index Predict')
 #plt.axis([0, 6, 0, 20])
 plt.show()
+fileName = "TAIEX.jpg"
+"""
+#如果要把 figure 存起來, 就要把 plt.show() 關掉
+#plt.savefig(fileName)   # save the figure to file
+#plt.close()
+"""
