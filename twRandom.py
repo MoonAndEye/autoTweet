@@ -28,8 +28,8 @@ low_limit = rd.randint(int(startPoint - singleRange), int(startPoint))
 singleRange 是單邊範圍,到時候可以下一個random(singleRange, singleRange * -1)
 """
 
-timeIndex = pd.date_range(startTime, periods = 54, freq="5min")
-
+timeIndex = pd.date_range(startTime, periods = 27, freq="10min")
+#改成每十分鐘一點,畫面比較漂亮,如果想的話,每1分鐘一點也行
 #print(len(timeIndex))
 
 minutes_point = []
