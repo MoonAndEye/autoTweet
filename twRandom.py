@@ -10,6 +10,21 @@ import datetime
 import matplotlib.pyplot as plt
 import random as rd
 
+
+def periodTime(start=list, end=list, step=int):
+    """
+    You must import datetime
+    """ 
+    output= []
+    for hours in range(start[0], end[0] + 1):
+        for minutes in range(start[1], end[1] + 1, step):
+            temp = datetime.time(hours, minutes)
+            output.append(temp)
+    
+    return (output)
+    
+test = periodTime([9,0], [13,30], 10)
+
 time_axis = []
 
 today = datetime.datetime.today()
