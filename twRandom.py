@@ -39,7 +39,7 @@ print(str(tmr.strftime("%Y %B %d %A .")))
 
 
 startTime = "09:01"
-startPoint = 8949.85
+startPoint = 9008.21
 singleRange = startPoint * 0.1
 singleRange = int(singleRange)
 up_limit = rd.randint(int(startPoint),int(startPoint + singleRange))
@@ -114,3 +114,12 @@ fileName = "TAIEX.jpg"
 plt.savefig(fileName)   # save the figure to file
 plt.close()
 
+d_highest = predict.twStock.max()
+d_lowest = predict.twStock.min()
+final = predict.twStock[-1]
+print("開盤:"+ str(startPoint))
+print("最高:"+ str(d_highest))
+print("開盤:"+ str(d_lowest))
+print("開盤:"+ str(final))
+print("以上是用python的random模組隨機跑，完全不準。")
+print("盈虧自負")
