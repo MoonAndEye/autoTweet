@@ -28,6 +28,7 @@ test = periodTime([9,0], [13,30], 10)
 time_axis = []
 
 today = datetime.datetime.today()
+#tmr = today
 tmr = today + datetime.timedelta(1)
 title= tmr.strftime("%Y %B %d %A .")
 print(str(tmr.strftime("%Y %B %d %A .")))
@@ -38,7 +39,7 @@ print(str(tmr.strftime("%Y %B %d %A .")))
 
 
 startTime = "09:01"
-startPoint = 8866.36
+startPoint = 8949.85
 singleRange = startPoint * 0.1
 singleRange = int(singleRange)
 up_limit = rd.randint(int(startPoint),int(startPoint + singleRange))
