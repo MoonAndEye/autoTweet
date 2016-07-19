@@ -138,6 +138,9 @@ for a in range(0,len(timeIndex)-1):
     if a%3 == 0:
         newAxis.append(timeIndex[a])
 newAxis.append(timeIndex[-1])
+"""
+#newAxis是我想要放上去的軸,因為newAxis 從 timeIndex來, 兩者有對應關係
+"""
 ax.set_xticks(newAxis, minor=False)
 #ax.set_xticks([0.3,0.55,0.7], minor=True)
 ax.xaxis.grid(True, which='major')
