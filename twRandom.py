@@ -14,12 +14,19 @@ import matplotlib.axis as pltax
 def periodTime(start=list, end=list, step=int):
     """
     You must import datetime
+    Start and end is a list with two elements.
+    Ex. you can use [9,0] as 09:00, [13,30] as 13:00
     """ 
     output= []
     for hours in range(start[0], end[0] + 1):
-        for minutes in range(start[1], end[1] + 1, step):
-            temp = datetime.time(hours, minutes)
-            output.append(temp)
+        if hours < end[0]:
+            for minutes in range(0,60, 10):
+                temp = datetime.time(hours,minutes)
+                output.append(temp)
+        if hours == end[0]:
+            for minutes in range(start[1], end[1] + 1, step):
+                temp = datetime.time(hours, minutes)
+                output.append(temp)
     
     return (output)
     
@@ -116,7 +123,29 @@ fileName = "TAIEX.jpg"
 #plt.savefig(fileName)   # save the figure to file
 plt.close()
 """
+fig, ax = plt.subplots()
 
+plt.axis([timeIndex[0], timeIndex[-1], d_lowest - 200, d_highest + 200])
+plt.xlabel('Time')
+plt.ylabel('TAIEX')
+plt.title('Taiwan stock index Predict on ' + title)
+#plt.axis([0, 6, 0, 20])
+plt.xticks(rotation=30)
+
+
+newAxis = []
+for a in range(0,len(timeIndex)-1):
+    if a%3 == 0:
+        newAxis.append(timeIndex[a])
+newAxis.append(timeIndex[-1])
+ax.set_xticks(newAxis, minor=False)
+#ax.set_xticks([0.3,0.55,0.7], minor=True)
+ax.xaxis.grid(True, which='major')
+ax.xaxis.grid(True, which='minor')
+plt.grid(True)
+plt.plot(timeIndex, minutes_point)
+plt.show()
+plt.close()
 
 print("開盤:"+ str(startPoint))
 print("最高:"+ str(d_highest))
