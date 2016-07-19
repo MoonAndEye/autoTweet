@@ -8,8 +8,6 @@ import time
 import datetime
 import matplotlib.pyplot as plt
 import random as rd
-import matplotlib.axis as pltax
-
 
 def periodTime(start=list, end=list, step=int):
     """
@@ -38,7 +36,11 @@ today = datetime.datetime.today()
 #tmr = today
 tmr = today + datetime.timedelta(1)
 title= tmr.strftime("%Y %B %d %A .")
+
+fileName = (tmr.strftime("%Y") + tmr.strftime("%m") + tmr.strftime("%d"))
+
 print(str(tmr.strftime("%Y %B %d %A .")))
+
 
 """
 四個小時半的交易, 就是270 min
