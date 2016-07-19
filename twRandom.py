@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Jul 13 16:08:04 2016
-
 """
 import pandas as pd
 import numpy as np
@@ -51,7 +50,6 @@ singleRange 是單邊範圍,到時候可以下一個random(singleRange, singleRa
 
 """
 timeIndex = pd.date_range(startTime, periods = 27, freq="10min",)
-
 datelist = pd.date_range(startTime, periods = 27, freq="10min",).tolist()
 """
 
@@ -74,18 +72,14 @@ for each_min in range(len(timeIndex) -1):
 """
 """
 一開始丟出一個上限,和一個下限
-
 然後 random 的東西就直接設定在這區間,就不會超過啦
-
 先畫圖,之後再改點數,這個點數很不正常,可能要加入一常態分佈的狀況
 目前先設定上下限, 當天的上下限就只會在這個地方跑
-
 toDo List
 1> 做出三種 pattern
     a> 開高走高
     b> 開低走低
     c> 上下震盪
-
 """
 
 """
@@ -94,8 +88,6 @@ a >要把檔名改用日期,不過日期不是字串的話不能合併,之後修
 b >圖的最左邊,要設09:00右邊要設13:30,現在的軸也不對,而且1330的資料沒有
 c >判斷式也沒寫,如果是假日,台股不開盤,所以就不用執行程式了
 d >還要把 始 高 低 終 的值print出來,這之後也要貼在 twitter上
-
-
 """
 
 d_highest = predict.twStock.max()
@@ -110,13 +102,14 @@ plt.ylabel('TAIEX')
 plt.title('Taiwan stock index Predict on ' + title)
 #plt.axis([0, 6, 0, 20])
 plt.xticks(rotation=30)
+plt.grid(True)
 
-#plt.show()
+plt.show()
 fileName = "TAIEX.jpg"
 
 
 #如果要把 figure 存起來, 就要把 plt.show() 關掉
-plt.savefig(fileName)   # save the figure to file
+#plt.savefig(fileName)   # save the figure to file
 plt.close()
 
 print("開盤:"+ str(startPoint))
