@@ -97,7 +97,7 @@ b >圖的最左邊,要設09:00右邊要設13:30,現在的軸也不對,而且1330
 c >判斷式也沒寫,如果是假日,台股不開盤,所以就不用執行程式了
 d >還要把 始 高 低 終 的值print出來,這之後也要貼在 twitter上
 """
-
+start = predict.twStock[0]
 d_highest = predict.twStock.max()
 d_lowest = predict.twStock.min()
 final = predict.twStock[-1]
@@ -147,7 +147,7 @@ plt.plot(timeIndex, minutes_point)
 plt.show()
 plt.close()
 
-print("開盤:"+ str(startPoint))
+print("開盤:"+ str(start))
 print("最高:"+ str(d_highest))
 print("最低:"+ str(d_lowest))
 print("收盤:"+ str(final))
