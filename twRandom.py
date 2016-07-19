@@ -23,7 +23,7 @@ def periodTime(start=list, end=list, step=int):
     
     return (output)
     
-test = periodTime([9,0], [13,30], 10)
+timeIndex = periodTime([9,0], [13,30], 10)
 
 time_axis = []
 
@@ -49,10 +49,11 @@ low_limit = rd.randint(int(startPoint - singleRange), int(startPoint))
 singleRange 是單邊範圍,到時候可以下一個random(singleRange, singleRange * -1)
 """
 
+"""
 timeIndex = pd.date_range(startTime, periods = 27, freq="10min",)
 
 datelist = pd.date_range(startTime, periods = 27, freq="10min",).tolist()
-
+"""
 
 #改成每十分鐘一點,畫面比較漂亮,如果想的話,每1分鐘一點也行
 #print(len(timeIndex))
@@ -97,9 +98,13 @@ d >還要把 始 高 低 終 的值print出來,這之後也要貼在 twitter上
 
 """
 
+d_highest = predict.twStock.max()
+d_lowest = predict.twStock.min()
+final = predict.twStock[-1]
 
 plt.plot(timeIndex, minutes_point)
 plt.gcf().subplots_adjust(bottom=0.2)
+plt.axis([timeIndex[0], timeIndex[-1], d_lowest - 200, d_highest + 200])
 plt.xlabel('Time')
 plt.ylabel('TAIEX')
 plt.title('Taiwan stock index Predict on ' + title)
@@ -114,9 +119,6 @@ fileName = "TAIEX.jpg"
 plt.savefig(fileName)   # save the figure to file
 plt.close()
 
-d_highest = predict.twStock.max()
-d_lowest = predict.twStock.min()
-final = predict.twStock[-1]
 print("開盤:"+ str(startPoint))
 print("最高:"+ str(d_highest))
 print("開盤:"+ str(d_lowest))
