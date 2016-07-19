@@ -37,7 +37,7 @@ today = datetime.datetime.today()
 tmr = today + datetime.timedelta(1)
 title= tmr.strftime("%Y %B %d %A .")
 
-fileName = (tmr.strftime("%Y") + tmr.strftime("%m") + tmr.strftime("%d"))
+fileName = (tmr.strftime("%Y") + "-"+ tmr.strftime("%m") + "-"+ tmr.strftime("%d"))
 
 print(str(tmr.strftime("%Y %B %d %A .")))
 
@@ -149,8 +149,16 @@ ax.xaxis.grid(True, which='major')
 ax.xaxis.grid(True, which='minor')
 plt.grid(True)
 plt.plot(timeIndex, minutes_point)
-plt.show()
+#plt.show()
+plt.xticks(rotation=30)
+
+
+predict.rename(columns={'twStock':fileName}, inplace=True)
+
+savepath = fileName + ".csv"
+plt.savefig(fileName + ".jpg")
 plt.close()
+predict.to_csv(savepath)
 
 print("開盤:"+ str(start))
 print("最高:"+ str(d_highest))
@@ -158,3 +166,6 @@ print("最低:"+ str(d_lowest))
 print("收盤:"+ str(final))
 print("以上是用python的random模組隨機跑，完全不準。")
 print("盈虧自負")
+print("#台股隨機預測")
+print("#不負責任預測")
+print("#用python來畫圖")
