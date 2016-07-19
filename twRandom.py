@@ -8,6 +8,7 @@ import time
 import datetime
 import matplotlib.pyplot as plt
 import random as rd
+import matplotlib.axis as pltax
 
 
 def periodTime(start=list, end=list, step=int):
@@ -37,7 +38,7 @@ print(str(tmr.strftime("%Y %B %d %A .")))
 """
 
 
-startTime = "09:01"
+startTime = "09:00"
 startPoint = 9008.21
 singleRange = startPoint * 0.1
 singleRange = int(singleRange)
@@ -94,7 +95,10 @@ d_highest = predict.twStock.max()
 d_lowest = predict.twStock.min()
 final = predict.twStock[-1]
 
+"""
+#以下是舊版本的,可是格線出問題,不在我想要的位置上
 plt.plot(timeIndex, minutes_point)
+
 plt.gcf().subplots_adjust(bottom=0.2)
 plt.axis([timeIndex[0], timeIndex[-1], d_lowest - 200, d_highest + 200])
 plt.xlabel('Time')
@@ -111,6 +115,8 @@ fileName = "TAIEX.jpg"
 #如果要把 figure 存起來, 就要把 plt.show() 關掉
 #plt.savefig(fileName)   # save the figure to file
 plt.close()
+"""
+
 
 print("開盤:"+ str(startPoint))
 print("最高:"+ str(d_highest))
