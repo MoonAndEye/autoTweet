@@ -2,7 +2,7 @@ from googlefinance import getQuotes
 
 import json
 
-test = json.dumps(getQuotes('TPE:TAIEX'))
+start = json.dumps(getQuotes('TPE:TAIEX'))
 
 a = getQuotes('TPE:TAIEX')
 

@@ -3,11 +3,12 @@
 Created on Wed Jul 13 16:08:04 2016
 """
 import pandas as pd
-import numpy as np
-import time
 import datetime
 import matplotlib.pyplot as plt
 import random as rd
+from googlefinance import getQuotes
+import json
+
 
 def periodTime(start=list, end=list, step=int):
     """
@@ -47,11 +48,22 @@ print(str(tmr.strftime("%Y %B %d %A .")))
 """
 
 
-startTime = "09:00"
-startPoint = 9007.68
+#startTime = "09:00"
+#startPoint = 9007.68
 """
 把start 改成自動取得
 """
+taiexJson = getQuotes('TPE:TAIEX')
+
+b4 = []
+
+for each in taiexJson[0]:
+    b4.append(each)
+
+result = taiexJson[0][b4[4]]
+startPoint = float(result.replace(",",""))
+
+
 singleRange = startPoint * 0.1
 singleRange = int(singleRange)
 up_limit = rd.randint(int(startPoint),int(startPoint + singleRange))
