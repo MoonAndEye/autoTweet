@@ -9,7 +9,6 @@ import random as rd
 from googlefinance import getQuotes
 import json
 
-
 def periodTime(start=list, end=list, step=int):
     """
     You must import datetime
