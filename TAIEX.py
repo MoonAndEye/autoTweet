@@ -13,7 +13,7 @@ for each in a[0]:
 
 #a = []
 
-result = a[0][empty[5]]
+result = a[0][empty[4]]
 new = float(result.replace(",",""))
 
 new = int(new)

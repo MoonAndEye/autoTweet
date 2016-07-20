@@ -48,7 +48,7 @@ print(str(tmr.strftime("%Y %B %d %A .")))
 
 
 startTime = "09:00"
-startPoint = 9008.21
+startPoint = 9007.68
 singleRange = startPoint * 0.1
 singleRange = int(singleRange)
 up_limit = rd.randint(int(startPoint),int(startPoint + singleRange))
