@@ -64,7 +64,7 @@ result = nikkeiJson[0][b4[5]]
 startPoint = float(result[-9:].replace(",",""))
 
 
-singleRange = startPoint * 0.1
+singleRange = startPoint * 0.05
 singleRange = int(singleRange)
 up_limit = rd.randint(int(startPoint),int(startPoint + singleRange))
 low_limit = rd.randint(int(startPoint - singleRange), int(startPoint))
