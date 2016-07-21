@@ -89,12 +89,28 @@ for each_min in range(len(timeAMIndex)):
 
 predict = pd.DataFrame(minutes_point, columns=["jpStock"], index = timeAMIndex)
 
-"""
-for each_min in range(len(timeAMIndex) -1):
-    init = min_index[each_min]
-    nextPoint = init + rd.randint(int(-singleRange), singleRange)
-    min_index.append(nextPoint)    
-"""
+timeRestIndex = periodTime([11,00], [12,20], 10)
+timeRestIndex = timeRestIndex[4:]
+
+restPredict = pd.DataFrame(columns=["jpStock"], index = timeRestIndex)
+restPredict = restPredict.fillna(predict.jpStock[-1])
+
+timePMIndex = periodTime([12,00], [15,00], 10)
+timePMIndex = timePMIndex[3:]
+
+minutes_point_pm = []
+
+for each_min in range(len(timePMIndex)):
+    each_point = rd.randint(low_limit, up_limit)
+    minutes_point_pm.append(each_point)
+
+predict_pm = pd.DataFrame(minutes_point_pm, columns=["jpStock"], index = timePMIndex)
+
+frames = [predict, restPredict, predict_pm]
+
+predict = pd.concat(frames)
+
+
 """
 一開始丟出一個上限,和一個下限
 然後 random 的東西就直接設定在這區間,就不會超過啦
@@ -140,9 +156,11 @@ fileName = "nikkei.jpg"
 #plt.savefig(fileName)   # save the figure to file
 plt.close()
 """
+
+newX = predict.index.values
 fig, ax = plt.subplots()
 
-plt.axis([timeAMIndex[0], timeAMIndex[-1], d_lowest - 200, d_highest + 200])
+plt.axis([timeAMIndex[0], test[-1], d_lowest - 200, d_highest + 200])
 plt.xlabel('Time')
 plt.ylabel('nikkei')
 plt.title('Nikkei stock index Predict on ' + title)
@@ -151,10 +169,10 @@ plt.xticks(rotation=30)
 
 
 newAxis = []
-for a in range(0,len(timeAMIndex)-1):
+for a in range(0,len(newX)-1):
     if a%3 == 0:
-        newAxis.append(timeAMIndex[a])
-newAxis.append(timeAMIndex[-1])
+        newAxis.append(newX[a])
+newAxis.append(newX[-1])
 """
 #newAxis是我想要放上去的軸,因為newAxis 從 timeIndex來, 兩者有對應關係
 """
@@ -163,7 +181,13 @@ ax.set_xticks(newAxis, minor=False)
 ax.xaxis.grid(True, which='major')
 ax.xaxis.grid(True, which='minor')
 plt.grid(True)
-plt.plot(timeAMIndex, minutes_point)
+
+newY = []
+
+for each in predict["jpStock"]:
+    newY.append(each)
+
+plt.plot(newX, newY)
 #plt.show()
 plt.xticks(rotation=30)
 
