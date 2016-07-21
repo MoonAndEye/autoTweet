@@ -64,7 +64,7 @@ result = taiexJson[0][b4[5]]
 startPoint = float(result[-8:].replace(",",""))
 
 
-singleRange = startPoint * 0.1
+singleRange = startPoint * 0.05
 singleRange = int(singleRange)
 up_limit = rd.randint(int(startPoint),int(startPoint + singleRange))
 low_limit = rd.randint(int(startPoint - singleRange), int(startPoint))
@@ -170,8 +170,8 @@ plt.xticks(rotation=30)
 
 predict.rename(columns={'twStock':fileName}, inplace=True)
 
-savepath = fileName + ".csv"
-plt.savefig(fileName + ".jpg")
+savepath = fileName + "_tw.csv"
+plt.savefig(fileName + "_tw.jpg")
 plt.close()
 predict.to_csv(savepath)
 

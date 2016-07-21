@@ -160,7 +160,7 @@ plt.close()
 newX = predict.index.values
 fig, ax = plt.subplots()
 
-plt.axis([timeAMIndex[0], test[-1], d_lowest - 200, d_highest + 200])
+plt.axis([newX[0], newX[-1], d_lowest - 200, d_highest + 200])
 plt.xlabel('Time')
 plt.ylabel('nikkei')
 plt.title('Nikkei stock index Predict on ' + title)
@@ -192,11 +192,11 @@ plt.plot(newX, newY)
 plt.xticks(rotation=30)
 
 
-predict.rename(columns={'twStock':fileName}, inplace=True)
+predict.rename(columns={'jpStock':fileName}, inplace=True)
 
-savepath = fileName + ".csv"
-plt.show()
-#plt.savefig(fileName + ".jpg")
+savepath = fileName + "_jp.csv"
+#plt.show()
+plt.savefig(fileName + "_jp.jpg")
 plt.close()
 predict.to_csv(savepath)
 
