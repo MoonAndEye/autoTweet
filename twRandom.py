@@ -43,7 +43,8 @@ print(str(tmr.strftime("%Y %B %d %A .")))
 
 
 """
-四個小時半的交易, 就是270 min
+日股上午 0900 - 1130
+日股下午 1230 - 1500
 """
 
 
@@ -59,8 +60,8 @@ b4 = []
 for each in taiexJson[0]:
     b4.append(each)
 
-result = taiexJson[0][b4[4]]
-startPoint = float(result.replace(",",""))
+result = taiexJson[0][b4[5]]
+startPoint = float(result[-8:].replace(",",""))
 
 
 singleRange = startPoint * 0.1
