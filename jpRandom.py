@@ -61,8 +61,9 @@ for each in nikkeiJson[0]:
     b4.append(each)
 
 result = nikkeiJson[0][b4[5]]
-startPoint = float(result[-9:].replace(",",""))
 
+startPoint = float(result[-9:].replace(",",""))
+#startPoint = 16627.25
 
 singleRange = startPoint * 0.05
 singleRange = int(singleRange)
@@ -204,8 +205,11 @@ print("Open:"+ str(start))
 print("Max:"+ str(d_highest))
 print("Min:"+ str(d_lowest))
 print("Close:"+ str(final))
-print("This graph was made by random module.")
-print("")
-print("#Nikkei random prediction")
-print("#No response for the graph")
-print("#The graph was made by Python")
+
+print("#NikkeiRandom")
+print("#NoResponse")
+print("#pythonDraw")
+
+#NikkeiRandom
+#NoResponse
+#pythonDraw

@@ -62,7 +62,7 @@ for each in taiexJson[0]:
 
 result = taiexJson[0][b4[5]]
 startPoint = float(result[-8:].replace(",",""))
-
+#startPoint = 9013.14
 
 singleRange = startPoint * 0.05
 singleRange = int(singleRange)
